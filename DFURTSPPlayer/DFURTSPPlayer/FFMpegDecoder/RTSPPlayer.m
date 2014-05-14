@@ -221,6 +221,7 @@ initError:
         if(packet.stream_index==videoStream) {
             // Decode video frame
             avcodec_decode_video2(pCodecCtx, pFrame, &frameFinished, &packet);
+            av_free_packet(&packet);
         }
         
         if (packet.stream_index==audioStream) {
